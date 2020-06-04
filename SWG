@@ -1,0 +1,44 @@
+import random
+
+n=1
+pt_for_user = 0
+pt_for_comp = 0
+lst = ["snake", "water", "gun"]
+
+while n<=10:
+    comp = random.choice(lst)
+    usr = input("Enter your choice!!! snake, water or gun\n--->     ").lower()
+    if usr == "snake" or usr == "water" or usr == "gun":
+        pass
+    else:
+        print("Please enter a valid input")
+        usr = input("Enter your choice!!! snake, water or gun\n--->     ").lower()
+
+
+    print("Computer choice is:\n--->    " + comp)
+    if comp == "snake" and usr == "water":
+        pt_for_comp = pt_for_comp + 1
+    elif comp == "snake" and usr == "gun":
+        pt_for_user = pt_for_user + 1
+    elif comp == "water" and usr == "snake":
+        pt_for_user = pt_for_user + 1
+    elif comp == "water" and usr == "gun":
+        pt_for_comp = pt_for_comp + 1
+    elif comp == "gun" and usr == "snake":
+        pt_for_comp = pt_for_comp + 1
+    elif comp == "gun" and usr == "water":
+        pt_for_user = pt_for_user + 1
+    elif comp == usr:
+        pass
+
+
+    n += 1
+
+print("\nPoints of the computer is " + str(pt_for_comp))
+print("\nPoints of the player is " + str(pt_for_user))
+
+
+if pt_for_comp < pt_for_user:
+    print("User Win")
+else:
+    print("Computer Win")
